@@ -4,7 +4,7 @@ dotenv.config({
   path: process.cwd() + `/.env.${process.env.NODE_ENV}`
 });
 
-const env = {
+export default {
   server: {
     port: process.env.PORT
   },
@@ -19,9 +19,3 @@ const env = {
     origin: "*"
   }
 }
-
-export default env;
-
-
-console.log(env.logger.prettyPrint);
-console.log(env.logger.level);

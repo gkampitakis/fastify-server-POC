@@ -2,11 +2,11 @@ import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
 import Controller from './controller';
 
-async function Thing(server: FastifyInstance, options: unknown, done: Function) {
+async function User(server: FastifyInstance, options: unknown, done: Function) {
 
   server.route({
     method: 'GET',
-    url: '/thing',
+    url: '/user',
     schema: {},
     handler: (req, res) => Controller.get(req, res)
   });
@@ -15,4 +15,4 @@ async function Thing(server: FastifyInstance, options: unknown, done: Function) 
 
 }
 
-export default fp(Thing);
+export default fp(User);

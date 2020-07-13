@@ -1,14 +1,13 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 
-class ThingController {
-
+class UserController {
 
   public get(request: FastifyRequest, response: FastifyReply) {
 
-    response.status(200).send({ response: 'Thing Controller' });
+    response.status(200).send({ response: 'User Controller' });
 
   }
 
 }
 
-export default new ThingController();
+export default new UserController();

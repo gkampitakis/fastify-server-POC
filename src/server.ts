@@ -13,6 +13,8 @@ export class Server {
 
     this.server = fastify();
 
+    this.setup();
+
   }
 
   private setup() {
