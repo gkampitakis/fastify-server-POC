@@ -7,7 +7,18 @@ async function Thing(server: FastifyInstance, options: unknown, done: Function) 
   server.route({
     method: 'GET',
     url: '/thing',
-    schema: {},
+    schema: {
+      tags: ['Thing'],
+      response: {
+        200: {
+          description: 'Response of GET THING',
+          type: 'object',
+          properties: {
+            response: { type: 'string' }
+          }
+        }
+      }
+    },
     handler: (req, res) => Controller.get(req, res)
   });
 
