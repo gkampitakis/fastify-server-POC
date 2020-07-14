@@ -22,6 +22,7 @@ export default {
   docs: {
     routePrefix: '/dev/documentation',
     addModels: true,
+    basePath: '/',
     swagger: {
       info: {
         title: 'Fastify Server Spike',
@@ -52,6 +53,8 @@ export default {
         }
       ]
     },
+    responses: {},
+    definitions: {},
     tags: [
       {
         name: 'User',

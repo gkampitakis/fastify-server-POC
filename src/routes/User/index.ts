@@ -7,7 +7,25 @@ async function User(server: FastifyInstance, options: unknown, done: Function) {
   server.route({
     method: 'GET',
     url: '/user',
-    schema: {},
+    schema: {
+      querystring: {
+        type: 'object',
+        properties: {
+          name: { type: 'string' },
+          excitement: { type: 'integer' },
+        },
+        required: ['name', 'excitement']
+      },
+      response: {
+        200: {
+          description: 'Response of GET THING',
+          type: 'object',
+          properties: {
+            response: { type: 'string' }
+          }
+        }
+      }
+    },
     handler: (req, res) => Controller.get(req, res)
   });
 

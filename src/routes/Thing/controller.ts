@@ -9,6 +9,10 @@ class ThingController {
 
   }
 
+  public create(request: FastifyRequest, response: FastifyReply) {
+
+  }
+
 }
 
 export default new ThingController();

@@ -8,7 +8,6 @@ async function Thing(server: FastifyInstance, options: unknown, done: Function) 
     method: 'GET',
     url: '/thing',
     schema: {
-      tags: ['Thing'],
       response: {
         200: {
           description: 'Response of GET THING',
@@ -21,6 +20,26 @@ async function Thing(server: FastifyInstance, options: unknown, done: Function) 
     },
     handler: (req, res) => Controller.get(req, res)
   });
+
+
+  server.route({
+    method: 'POST',
+    url: '/thing',
+    schema: {
+      response: {
+        // 200: {
+        //   description: 'Thing was created',
+        //   type: 'object',
+        //   properties: {
+        //     message: { type: 'string' },
+        //     status: { type: 'number' },
+        //     required: ['message']
+        //   }
+        // }
+      }
+    },
+    handler: (req, res) => Controller.create(req, res)
+  })
 
   done();
 
