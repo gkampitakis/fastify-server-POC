@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance } from 'fastify';
-import swagger from 'fastify-oas';
+import swagger from 'fastify-swagger';
 import cors from 'fastify-cors';
 import auto_load from 'fastify-autoload';
 import path from 'path';
@@ -7,7 +7,7 @@ import config from './config';
 
 export class Server {
 
-  private server: FastifyInstance;
+  private server;
 
   public constructor() {
 

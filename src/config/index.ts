@@ -38,24 +38,11 @@ export default {
         url: 'https://github.com/gkampitakis/fastify-server-POC/blob/master/README.md',
         description: 'Github Repo',
       },
-      servers: [
-        {
-          url: "https://qa-test.com",
-          description: "QA server"
-        },
-        {
-          url: "localhost",
-          description: "localhost server"
-        },
-        {
-          url: "https://prd-test.com",
-          description: "Prd server"
-        }
-      ]
+      host: 'https://mockHost.com',
+      schemes: ['https'],
+      consumes: ['application/json', 'text/plain'],
+      produces: ['application/json', 'text/plain'],
     },
-    schemes: ['https'],
-    consumes: ['application/json'],
-    produces: ['application/json'],
     definitions: {},
     tags: [
       {

@@ -1,7 +1,7 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
 import Controller from './controller';
-import { GetThingSchema } from './schema';
+import { GetThingSchema, CreateThingSchema } from './schema';
 
 async function Thing(server: FastifyInstance, options: unknown, done: Function) {
 
@@ -16,7 +16,7 @@ async function Thing(server: FastifyInstance, options: unknown, done: Function) 
   server.route({
     method: 'POST',
     url: '/thing',
-    schema: {},
+    schema: CreateThingSchema,
     handler: (req, res) => Controller.create(req, res)
   })
 

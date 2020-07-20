@@ -25,9 +25,9 @@ const mockData = [
 
 class ThingController {
 
-  public async get(request: FastifyRequest<any>, response: FastifyReply) {
+  public async get(request: FastifyRequest, response: FastifyReply) {
 
-    const { id: reqId } = request.query;
+    const { id: reqId } = request.query as any;
 
     if (!reqId) {
 
@@ -40,9 +40,9 @@ class ThingController {
 
     const data = mockData.filter(({ id }) => reqId === id);
 
-    if (!data)
+    if (!data.length)
 
-      return response.status(200).send({
+      return response.status(400).send({
         status: 400,
         message: 'Thing not found'
       });
