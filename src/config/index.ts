@@ -53,7 +53,9 @@ export default {
         }
       ]
     },
-    responses: {},
+    schemes: ['https'],
+    consumes: ['application/json'],
+    produces: ['application/json'],
     definitions: {},
     tags: [
       {

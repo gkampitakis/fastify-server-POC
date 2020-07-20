@@ -1,23 +1,14 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
 import Controller from './controller';
+import { GetThingSchema } from './schema';
 
 async function Thing(server: FastifyInstance, options: unknown, done: Function) {
 
   server.route({
     method: 'GET',
     url: '/thing',
-    schema: {
-      response: {
-        200: {
-          description: 'Response of GET THING',
-          type: 'object',
-          properties: {
-            response: { type: 'string' }
-          }
-        }
-      }
-    },
+    schema: GetThingSchema,
     handler: (req, res) => Controller.get(req, res)
   });
 
@@ -25,19 +16,7 @@ async function Thing(server: FastifyInstance, options: unknown, done: Function) 
   server.route({
     method: 'POST',
     url: '/thing',
-    schema: {
-      response: {
-        // 200: {
-        //   description: 'Thing was created',
-        //   type: 'object',
-        //   properties: {
-        //     message: { type: 'string' },
-        //     status: { type: 'number' },
-        //     required: ['message']
-        //   }
-        // }
-      }
-    },
+    schema: {},
     handler: (req, res) => Controller.create(req, res)
   })
 
