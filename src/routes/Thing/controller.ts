@@ -26,22 +26,18 @@ const mockData = [
 class ThingController {
 
   public async get(request: FastifyRequest, response: FastifyReply) {
-
     const { id: reqId } = request.query as any;
 
     if (!reqId) {
-
       return response.status(200).send({
         status: 200,
         data: mockData
       });
-
     }
 
     const data = mockData.filter(({ id }) => reqId === id);
 
     if (!data.length)
-
       return response.status(400).send({
         status: 400,
         message: 'Thing not found'
@@ -51,13 +47,11 @@ class ThingController {
       status: 200,
       data
     });
-
   }
 
   public create(request: FastifyRequest, response: FastifyReply) {
 
   }
-
 }
 
 export default new ThingController();

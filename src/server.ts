@@ -8,19 +8,15 @@ import customHealthCheck from 'fastify-custom-healthcheck';
 import PromiseUtil from '@gkampitakis/promise-util';
 
 export class Server {
-
   private server: FastifyInstance;
 
   public constructor() {
-
     this.server = fastify();
 
     this.setup();
-
   }
 
   private setup() {
-
     this.server
       .register(cors, config.cors)
       .register(swagger, config.docs)
@@ -36,11 +32,9 @@ export class Server {
           usage: 'Experimenting'
         }
       });
-
   }
 
   public async addHealthChecks() {
-
     await this.server.ready();
 
     this.server.addHealthCheck('test', () => PromiseUtil.delay(2000, () => {
@@ -50,17 +44,13 @@ export class Server {
     this.server.addHealthCheck('mongo', () => PromiseUtil.delay(2000, () => Promise.reject('Error')));
 
     this.server.addHealthCheck('sync', () => true, { value: false });
-
   }
 
   public start(port: number) {
-
     this.server.listen(port, '0.0.0.0')
       .then((v) => console.log(`🚀 Server listening on ${v}`))
       .catch(err => console.error(err));
 
     return this;
-
   }
-
 }

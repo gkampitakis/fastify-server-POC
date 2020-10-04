@@ -3,7 +3,6 @@ import { FastifyInstance } from 'fastify';
 import Controller from './controller';
 
 async function User(server: FastifyInstance, options: unknown, done: Function) {
-
   server.route({
     method: 'GET',
     url: '/user',
@@ -30,7 +29,6 @@ async function User(server: FastifyInstance, options: unknown, done: Function) {
   });
 
   done();
-
 }
 
 export default fp(User);
